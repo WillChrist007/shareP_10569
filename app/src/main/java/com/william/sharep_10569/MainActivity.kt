@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT).show()
     }
     fun clearData(view: View) {
-        editTextName!!.text.clear()
-        editTextEmail!!.text.clear()
+        val myPreference = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+        myPreference.edit().clear().apply()
         textViewName.text = ""
         textViewEmail.text = ""
         Toast.makeText(baseContext, "Cleared data",
